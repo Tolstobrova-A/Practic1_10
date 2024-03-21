@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 /**
  *
  * @author User
@@ -19,23 +20,31 @@ public class SCAN {
         if (directory.isDirectory()) {
             // Получаем список всех файлов и каталогов
             File[] filesAndDirectories = directory.listFiles();
-
+            
             // Создаем список для файлов и каталогов
             List<File> fileList = new ArrayList<>();
             List<File> directoryList = new ArrayList<>();
-
+            List<File> files = new ArrayList<>();
             // Добавляем файлы и каталоги в соответствующие списки
             for (File file : filesAndDirectories) {
                 if (file.isDirectory()) {
+                    files.addAll(directSearch(file));
+//                    directoryList.add(file);
+//                    scanDirectory(file);
+                }else{
+                    files.add(file);
+                }
+            }
+            for (File file : files){
+                if (file.isDirectory()){
                     directoryList.add(file);
-                    //scanDirectory(file);
                 }else{
                     fileList.add(file);
                 }
             }
             // Сортируем списки по имени
-            Collections.sort(directoryList);
-            Collections.sort(fileList);
+//            Collections.sort(directoryList);
+//            Collections.sort(fileList);
 
             // Выводим названия каталогов
             for (File directoryFile : directoryList) {
@@ -50,5 +59,23 @@ public class SCAN {
         } else {
             System.out.println(directory.getAbsolutePath() + " не является директорией");
         }
+    }
+    public static ArrayList<File> directSearch(File directories){
+        ArrayList <File> fileList = new ArrayList<>();
+        if (directories.isDirectory()){
+            fileList.add(directories);
+            File[] lisFile = directories.listFiles();
+            for (File fil:lisFile){
+                if (fil.isDirectory()){
+                    fileList.addAll(directSearch(fil));
+                }else{
+                    fileList.add(fil);
+                }
+            }
+
+        }else{
+            fileList.add(directories);
+        }
+        return fileList;
     }
 }
