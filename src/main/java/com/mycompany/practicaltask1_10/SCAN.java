@@ -57,7 +57,7 @@ public class SCAN {
             }
 
         } else {
-            System.out.println(directory.getAbsolutePath() + " не является директорией");
+            System.out.println("Произошла ошибка-неверный ввод данных!");
         }
     }
     public static ArrayList<File> directSearch(File directories){
