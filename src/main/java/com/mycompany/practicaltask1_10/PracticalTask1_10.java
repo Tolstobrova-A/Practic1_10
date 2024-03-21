@@ -16,17 +16,22 @@ import java.util.Scanner;
 public class PracticalTask1_10 {
     
     public static void main(String[] args) {
-        System.out.println("Practical task №1_10. Variant 5. Student Tolsbrova A.V. Group RIBO-01-22");
-        // Запрашиваем путь к каталогу у пользователя
-        System.out.println("Введите путь к каталогу: ");
+       System.out.println("Practical task №1_10. Variant 5. Student Tolsbrova A.V. Group RIBO-01-22");
+        
         Scanner scanner = new Scanner(System.in);
-        String path = scanner.nextLine();
+        try {
+            // Запрашиваем путь к каталогу у пользователя
+            System.out.println("Введите путь к каталогу: ");
+            String path = scanner.nextLine();
 
-        // Создаем объект File для указанного пути
-        File directory = new File(path);
+            // Создаем объект File для указанного пути
+            File directory = new File(path);
 
-        // Вызываем метод для сканирования и вывода результатов
-        SCAN.scanDirectory(directory);
+            // Вызываем метод для сканирования и вывода результатов
+            SCAN.scanDirectory(directory);
+        } catch (Exception e) {
+            System.out.println("Произошла ошибка-неверный ввод данных!");
+        }
     }
 
     
