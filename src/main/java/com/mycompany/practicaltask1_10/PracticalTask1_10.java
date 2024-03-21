@@ -33,7 +33,4 @@ public class PracticalTask1_10 {
             System.out.println("Произошла ошибка-неверный ввод данных!");
         }
     }
-
-    
-    
 }
