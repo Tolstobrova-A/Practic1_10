@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class PracticalTask1_10 {
     
     public static void main(String[] args) {
+        System.out.println("Practical task №1_10. Variant 5. Student Tolsbrova A.V. Group RIBO-01-22");
         // Запрашиваем путь к каталогу у пользователя
         System.out.println("Введите путь к каталогу: ");
         Scanner scanner = new Scanner(System.in);
